@@ -1,0 +1,110 @@
+main {
+    width: 100%;
+
+    header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .bannerTop {
+            width: 100%;
+            max-width: 121.6rem;
+
+            height: 40rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.411);
+                z-index: -1;
+            }
+            img {
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                position: absolute;
+                z-index: -2;
+            }
+
+            .boxText {
+                padding: 0 4rem;
+                display: grid;
+                gap: 2rem;
+                max-width: 60rem;
+                h3 {
+                    font-weight: 400;
+                    font-size: 4.8rem;
+                    line-height: 55px;
+                }
+                p {
+                    font-weight: 500;
+                    font-size: 2rem;
+                    line-height: 160%;
+                    /* or 32px */
+
+                    /* Grey */
+
+                    color: #a3a3a3;
+                }
+            }
+        }
+    }
+    .searchArea {
+        display: flex;
+        align-items: center;
+        margin-top: 4rem;
+        width: 100%;
+        height: 6rem;
+        padding-right: 2.4rem;
+        background: #090e18;
+        /* Background 3 */
+
+        border: 1px solid #151b26;
+        backdrop-filter: blur(15px);
+        /* Note: backdrop-filter has minimal browser support */
+
+        border-radius: 4px;
+        span {
+          cursor: pointer;
+          transition: all .4s ease;
+          &:hover{
+            scale: 0.90;
+          }
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            font-weight: 400;
+            font-size: 1.8rem;
+            line-height: 21px;
+
+            /* White */
+
+            color: #fefbfb;
+            padding-left: 2.4rem;
+            &::placeholder {
+                transition: 0.4s ease all;
+                color: #fefbfb;
+            }
+            &:focus {
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .card{
+        margin-top: 8.2rem;
+    }
+}
