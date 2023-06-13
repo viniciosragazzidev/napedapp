@@ -1,10 +1,9 @@
-"use client";
 
-import { useState } from "react";
+
 import { Navbar } from "./_components/navbar";
 import "./styles/global_style/globals.css";
 import { Rubik, Inter } from "next/font/google";
-import AppContext from "./_context/AppContext";
+import { AppProvider } from "./_context/AppContext";
 const inter = Inter({ subsets: ["latin"] });
 
 const rubik = Rubik({ subsets: ["latin"] });
@@ -19,24 +18,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
   return (
-    <AppContext.Provider value={{ openMenu, setOpenMenu }}>
-      <html lang="en">
-        <body className={rubik.className}>
-          <Navbar />
-          <div className="contentGlobal">{children}</div>
-          <footer className={inter.className}>
-            <span className="left">
-            Copyright © 2022 iuricode.com. Todos os direitos reservados.
-            </span>
-            <span className="right">
-            Powered by
+   <AppProvider>
 
-            </span>
-          </footer>
-        </body>
-      </html>
-    </AppContext.Provider>
+
+
+     <html lang="en">
+       <body className={rubik.className}>
+         <Navbar />
+         <div className="contentGlobal">{children}</div>
+         <footer className={inter.className}>
+           <span className="left">
+           Copyright © 2022 iuricode.com. Todos os direitos reservados.
+           </span>
+           <span className="right">
+           Powered by
+
+           </span>
+         </footer>
+       </body>
+     </html>
+   </AppProvider>
   );
 }
